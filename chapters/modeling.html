@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modeling - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-graph {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📊 Modeling</h1>
+        <p style="margin-bottom: 2.2rem;">Representing and analyzing real-world situations mathematically</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="modelingProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Convert real-world situations into mathematical models</li>
+                <li>Use functions to represent relationships</li>
+                <li>Analyze models to make predictions and interpretations</li>
+                <li>Understand the limitations of models</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. What is Modeling?</h2>
+            <p>Modeling is the process of simplifying complex real-world situations into mathematical expressions for analysis.</p>
+            
+            <div class="example-box">
+                <h4>🌍 Real Example: Temperature Change</h4>
+                <p>Daily temperature changes can be modeled as a function of time.</p>
+                <p><strong>Mathematical Model:</strong> T(t) = 20 + 5sin(πt/12)</p>
+                <p>Where T is temperature (°C) and t is time (hours).</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: Math Modeling: An Introductory Lesson</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sU-2YOz1RnI" 
+                            title="Math Modeling: An Introductory Lesson" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video introduces the basics of mathematical modeling for high school students with clear examples.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🔢 2. Linear Modeling</h2>
+            <p>Situations that change at a constant rate can be modeled as y = mx + b.</p>
+            
+            <div class="example-box">
+                <h4>💰 Example: Savings Plan</h4>
+                <p>If you save $50,000 per month, the total savings after n months is:</p>
+                <p><strong>S(n) = 50000n</strong></p>
+                <p>This is a straight line with slope 50000 and y-intercept 0.</p>
+            </div>
+
+            <div class="interactive-graph">
+                <h4>📈 Interactive Graph</h4>
+                <canvas id="linearGraph" width="400" height="300"></canvas>
+                <br>
+                <label>Slope (m): <input type="range" id="slope" min="-10" max="10" value="2" step="0.5"></label>
+                <span id="slopeValue">2</span>
+                <br>
+                <label>y-intercept (b): <input type="range" id="intercept" min="-5" max="5" value="0" step="0.5"></label>
+                <span id="interceptValue">0</span>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📐 3. Quadratic Modeling</h2>
+            <p>Situations with constant acceleration can be modeled as y = ax² + bx + c.</p>
+            
+            <div class="example-box">
+                <h4>🏀 Example: Basketball Height</h4>
+                <p>When a basketball is thrown upward, the height h after t seconds is:</p>
+                <p><strong>h(t) = -4.9t² + 10t + 2</strong></p>
+                <p>Where -4.9 is half of gravitational acceleration, 10 is initial velocity, and 2 is initial height.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>💡 4. Exponential Modeling</h2>
+            <p>Situations that increase or decrease proportionally can be modeled as y = a·b^x.</p>
+            
+            <div class="example-box">
+                <h4>🦠 Example: Bacterial Growth</h4>
+                <p>If bacteria double every hour, the population after t hours is:</p>
+                <p><strong>N(t) = N₀ × 2^t</strong></p>
+                <p>Where N₀ is the initial population.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Taxi Fare</h4>
+                <p>A taxi has a base fare of $3,000 and charges $1,000 per kilometer.</p>
+                <p>Express the fare y dollars as a function of distance x kilometers.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> y = 1000x + 3000</p>
+                    <p><strong>Explanation:</strong> Base fare $3000 plus $1000 per kilometer, so it's a linear function with slope 1000 and y-intercept 3000.</p>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Water Tank Height</h4>
+                <p>Water is filling a tank at a constant rate. After 1 minute the height is 2cm, after 3 minutes it's 6cm.</p>
+                <p>Express the water height h cm as a function of time t minutes.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> h = 2t</p>
+                    <p><strong>Explanation:</strong> Height increases by 2cm per minute, so it's a linear function with slope 2 and y-intercept 0.</p>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: Population Growth</h4>
+                <p>If a city's population increases by 3% annually, and the current population is 1 million,</p>
+                <p>express the population P after t years as a function.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> P = 1,000,000 × (1.03)^t</p>
+                    <p><strong>Explanation:</strong> 3% annual growth means a growth rate of 1.03. This is an exponential function.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Modeling Quiz</h2>
+            <div id="modelingQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>When a car travels at 60 km/h, the distance s km covered in t hours is?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">s = 60t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">s = 60 + t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">s = 60/t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">s = 60t²</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>When a square has side length x, the area A is?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">A = 2x</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">A = x²</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">A = 4x</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">A = x/2</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>If $1,000,000 is deposited at 5% compound interest annually, the amount M after t years is?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">M = 1,000,000 + 50,000t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">M = 1,000,000 × 1.05^t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">M = 1,000,000 × 0.05t</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">M = 1,000,000 × t</div>
+                </div>
+            </div>
+            <button id="submitModelingQuiz" class="btn-primary" onclick="submitModelingQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="../index.html" class="nav-btn">← Home</a>
+            <a href="functions.html" class="nav-btn">Next: Functions →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let modelingQuizAnswers = {};
+        let modelingProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            modelingQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit modeling quiz
+        function submitModelingQuiz() {
+            const correctAnswers = {quiz1: 0, quiz2: 1, quiz3: 1};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (modelingQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            modelingProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('modelingProgress').style.width = `${modelingProgress}%`;
+            document.getElementById('progressText').textContent = `${modelingProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('modelingProgress', modelingProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${modelingProgress}%)`);
+        }
+
+        // Draw linear graph
+        function drawLinearGraph() {
+            const canvas = document.getElementById('linearGraph');
+            const ctx = canvas.getContext('2d');
+            const slope = parseFloat(document.getElementById('slope').value);
+            const intercept = parseFloat(document.getElementById('intercept').value);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height/2);
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.moveTo(canvas.width/2, 0);
+            ctx.lineTo(canvas.width/2, canvas.height);
+            ctx.stroke();
+            
+            // Draw function graph
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let x = -10; x <= 10; x += 0.1) {
+                const y = slope * x + intercept;
+                const canvasX = (x + 10) * (canvas.width / 20);
+                const canvasY = canvas.height/2 - y * (canvas.height / 20);
+                if (x === -10) {
+                    ctx.moveTo(canvasX, canvasY);
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Slider events
+        document.getElementById('slope').addEventListener('input', function() {
+            document.getElementById('slopeValue').textContent = this.value;
+            drawLinearGraph();
+        });
+
+        document.getElementById('intercept').addEventListener('input', function() {
+            document.getElementById('interceptValue').textContent = this.value;
+            drawLinearGraph();
+        });
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('modelingProgress') || 0;
+            modelingProgress = parseInt(savedProgress);
+            document.getElementById('modelingProgress').style.width = `${modelingProgress}%`;
+            document.getElementById('progressText').textContent = `${modelingProgress}% Complete`;
+            
+            // Initialize graph
+            drawLinearGraph();
+        });
+    </script>
+</body>
+</html> 

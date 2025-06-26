@@ -1,0 +1,546 @@
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* 헤더 스타일 */
+header {
+    background: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(30, 41, 59, 0.07);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 100;
+}
+
+header h1 {
+    color: #2563eb;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+header p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+/* 메인 컨테이너 */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 섹션 스타일 */
+section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(30, 41, 59, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(30, 41, 59, 0.13);
+}
+
+section h2 {
+    color: #1e293b;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* 환영 섹션 */
+.welcome-section {
+    text-align: center;
+    background: linear-gradient(135deg, #2563eb 0%, #38d9a9 100%);
+    color: white;
+}
+
+.welcome-section h2 {
+    color: #ffe066;
+    font-size: 2rem;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
+}
+
+/* 퀴즈 섹션 */
+.quiz-section {
+    text-align: center;
+}
+
+.quiz-section p {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+/* 버튼 스타일 */
+.btn-primary {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.18);
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.btn-primary:hover {
+    background: #38d9a9;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 217, 169, 0.28);
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, #38d9a9 0%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(56, 217, 169, 0.18);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 217, 169, 0.28);
+    background: linear-gradient(90deg, #ffe066 0%, #2563eb 100%);
+    color: #1e293b;
+}
+
+/* 커리큘럼 그리드 */
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.curriculum-card {
+    background: linear-gradient(135deg, #ffe066 0%, #38d9a9 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 18px rgba(56, 217, 169, 0.10);
+}
+
+.curriculum-card:hover {
+    transform: translateY(-5px);
+    border-color: #2563eb;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.13);
+}
+
+.curriculum-card h3 {
+    color: #1e293b;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.curriculum-card p {
+    color: #2563eb;
+    margin-bottom: 1rem;
+    font-size: 0.98rem;
+}
+
+/* 진행률 섹션 */
+.progress-container {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-item span {
+    min-width: 80px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb 0%, #38d9a9 100%);
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* 퀴즈 스타일 */
+#quizProgress {
+    text-align: center;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+#questionContainer {
+    margin-bottom: 1.5rem;
+}
+
+#questionContainer h3 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+#answerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.answer-option {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.answer-option:hover {
+    background: #edf2f7;
+    border-color: #667eea;
+}
+
+.answer-option.selected {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: #667eea;
+}
+
+.answer-option.correct {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border-color: #48bb78;
+}
+
+.answer-option.incorrect {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    color: white;
+    border-color: #f56565;
+}
+
+/* 결과 스타일 */
+#scoreDisplay {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+#recommendation {
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid #667eea;
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .curriculum-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+    
+    .progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .progress-item span {
+        min-width: auto;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.curriculum-card {
+    animation: fadeIn 0.6s ease-out;
+    animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Hamburger Menu Button */
+#hamburgerMenu {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40px;
+    height: 40px;
+}
+
+#hamburgerMenu span {
+    transition: background 0.2s;
+}
+
+/* Sidebar Menu */
+#sidebarMenu {
+    position: fixed;
+    top: 0;
+    left: -270px;
+    width: 250px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: 2px 0 16px rgba(30,41,59,0.10);
+    z-index: 1200;
+    transition: left 0.3s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+}
+#sidebarMenu.open {
+    left: 0;
+}
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+#sidebarMenu h2 {
+    font-size: 1.3rem;
+    color: #2563eb;
+    margin: 0;
+}
+#closeSidebar {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #2563eb;
+    cursor: pointer;
+    line-height: 1;
+}
+#sidebarMenu ul {
+    list-style: none;
+    padding: 1.2rem 0 0 0;
+    margin: 0;
+    flex: 1;
+}
+#sidebarMenu ul li {
+    margin: 0;
+}
+#sidebarMenu ul li a {
+    display: block;
+    padding: 1rem 2rem;
+    color: #1e293b;
+    text-decoration: none;
+    font-size: 1.08rem;
+    font-weight: 600;
+    border-left: 4px solid transparent;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+#sidebarMenu ul li a:hover {
+    background: #f1f5ff;
+    color: #2563eb;
+    border-left: 4px solid #2563eb;
+}
+@media (max-width: 600px) {
+    #sidebarMenu {
+        width: 80vw;
+        min-width: 180px;
+        max-width: 320px;
+    }
+    #hamburgerMenu {
+        top: 12px;
+        left: 12px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Navigation Buttons (Chapter Prev/Next) */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    gap: 1rem;
+}
+.nav-btn {
+    flex: 1 1 0;
+    max-width: 320px;
+    min-width: 180px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 1.2rem 0;
+    border-radius: 2.5rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(37,99,235,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.01em;
+}
+.nav-btn:hover {
+    background: #38d9a9;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(56,217,169,0.18);
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    .nav-btn {
+        font-size: 1.05rem;
+        padding: 0.8rem 0;
+        min-width: 100px;
+    }
+    .nav-buttons {
+        gap: 0.5rem;
+    }
+} 

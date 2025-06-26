@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number & Quantity - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e1f5fe 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #03a9f4;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-calculator {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #e1f5fe;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .number-line {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+        }
+        
+        .conversion-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .conversion-table th, .conversion-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .conversion-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>🔢 Number & Quantity</h1>
+        <p style="margin-bottom: 2.2rem;">Extending number systems and working with quantities</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="numbersProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Understand real numbers and their properties</li>
+                <li>Work with irrational numbers and radicals</li>
+                <li>Learn about scientific notation</li>
+                <li>Apply number concepts to real-world problems</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. Real Numbers</h2>
+            <p>Real numbers include all rational and irrational numbers on the number line.</p>
+            
+            <div class="example-box">
+                <h4>🔢 Types of Real Numbers</h4>
+                <ul>
+                    <li><strong>Natural Numbers:</strong> 1, 2, 3, 4, 5, ...</li>
+                    <li><strong>Whole Numbers:</strong> 0, 1, 2, 3, 4, 5, ...</li>
+                    <li><strong>Integers:</strong> ..., -3, -2, -1, 0, 1, 2, 3, ...</li>
+                    <li><strong>Rational Numbers:</strong> Fractions like 1/2, 3/4, -2/3</li>
+                    <li><strong>Irrational Numbers:</strong> √2, π, e</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: Real Number System Lesson for High School Algebra 1</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Zg-gqndvbVM" 
+                            title="Real Number System Lesson for High School Algebra 1" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video covers the real number system in detail for high school algebra students.</p>
+            </div>
+
+            <div class="number-line">
+                <h4>📏 Number Line</h4>
+                <p>... -3 -2 -1 0 1 2 3 ...</p>
+                <p>All real numbers can be represented on a number line.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>√ 2. Irrational Numbers and Radicals</h2>
+            <p>Irrational numbers cannot be expressed as fractions and have non-repeating decimal expansions.</p>
+            
+            <div class="example-box">
+                <h4>🔢 Common Irrational Numbers</h4>
+                <ul>
+                    <li><strong>√2 ≈ 1.414213562...</strong> (square root of 2)</li>
+                    <li><strong>√3 ≈ 1.732050808...</strong> (square root of 3)</li>
+                    <li><strong>π ≈ 3.141592654...</strong> (pi)</li>
+                    <li><strong>e ≈ 2.718281828...</strong> (natural number)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Simplifying Radicals</h4>
+                <p>Simplify √72:</p>
+                <div class="number-line">
+                    <p>√72 = √(36 × 2) = √36 × √2 = 6√2</p>
+                </div>
+                <p>Find the largest perfect square factor and simplify.</p>
+            </div>
+
+            <div class="interactive-calculator">
+                <h4>🧮 Radical Simplifier</h4>
+                <p>Enter a number to simplify its square root:</p>
+                <input type="number" id="radicalInput" placeholder="72" style="width: 100px; padding: 8px;">
+                <button class="btn-secondary" onclick="simplifyRadical()">Simplify</button>
+                <div id="radicalResult" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📊 3. Scientific Notation</h2>
+            <p>Scientific notation expresses numbers as a × 10^n where 1 ≤ a < 10.</p>
+            
+            <div class="example-box">
+                <h4>🔬 Converting to Scientific Notation</h4>
+                <table class="conversion-table">
+                    <tr>
+                        <th>Number</th>
+                        <th>Scientific Notation</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>3,400,000</td>
+                        <td>3.4 × 10⁶</td>
+                        <td>Move decimal 6 places left</td>
+                    </tr>
+                    <tr>
+                        <td>0.000045</td>
+                        <td>4.5 × 10⁻⁵</td>
+                        <td>Move decimal 5 places right</td>
+                    </tr>
+                    <tr>
+                        <td>7,200</td>
+                        <td>7.2 × 10³</td>
+                        <td>Move decimal 3 places left</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="interactive-calculator">
+                <h4>🔬 Scientific Notation Converter</h4>
+                <p>Enter a number:</p>
+                <input type="text" id="scientificInput" placeholder="3400000" style="width: 200px; padding: 8px;">
+                <button class="btn-secondary" onclick="convertToScientific()">Convert</button>
+                <div id="scientificResult" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📏 4. Units and Conversions</h2>
+            <p>Understanding units and converting between different measurement systems.</p>
+            
+            <div class="example-box">
+                <h4>📐 Common Unit Conversions</h4>
+                <table class="conversion-table">
+                    <tr>
+                        <th>Conversion</th>
+                        <th>Formula</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>Meters to Centimeters</td>
+                        <td>1 m = 100 cm</td>
+                        <td>2.5 m = 250 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Kilograms to Grams</td>
+                        <td>1 kg = 1000 g</td>
+                        <td>0.75 kg = 750 g</td>
+                    </tr>
+                    <tr>
+                        <td>Liters to Milliliters</td>
+                        <td>1 L = 1000 mL</td>
+                        <td>1.5 L = 1500 mL</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="interactive-calculator">
+                <h4>🔄 Unit Converter</h4>
+                <p>Convert:</p>
+                <input type="number" id="unitValue" placeholder="1" style="width: 80px; padding: 8px;">
+                <select id="fromUnit" style="padding: 8px;">
+                    <option value="m">Meters</option>
+                    <option value="cm">Centimeters</option>
+                    <option value="km">Kilometers</option>
+                </select>
+                <span>to</span>
+                <select id="toUnit" style="padding: 8px;">
+                    <option value="cm">Centimeters</option>
+                    <option value="m">Meters</option>
+                    <option value="km">Kilometers</option>
+                </select>
+                <button class="btn-secondary" onclick="convertUnits()">Convert</button>
+                <div id="unitResult" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Simplifying Radicals</h4>
+                <p>Simplify √48</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> 4√3</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="number-line">
+                        <p>√48 = √(16 × 3) = √16 × √3 = 4√3</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Scientific Notation</h4>
+                <p>Write 0.0000078 in scientific notation.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> 7.8 × 10⁻⁶</p>
+                    <p><strong>Solution:</strong> Move decimal 6 places to the right to get 7.8, so exponent is -6.</p>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: Unit Conversion</h4>
+                <p>Convert 2.5 kilometers to meters.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> 2,500 meters</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="number-line">
+                        <p>1 km = 1000 m</p>
+                        <p>2.5 km = 2.5 × 1000 = 2,500 m</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Number & Quantity Quiz</h2>
+            <div id="numbersQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>Simplify √50</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">5√2</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">2√5</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">5√10</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">10√5</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>Write 6,700,000 in scientific notation.</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">6.7 × 10⁵</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">6.7 × 10⁶</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">67 × 10⁵</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">0.67 × 10⁷</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>Convert 3.2 kilograms to grams.</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">320 g</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">3,200 g</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">32,000 g</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">320,000 g</div>
+                </div>
+            </div>
+            <button id="submitNumbersQuiz" class="btn-primary" onclick="submitNumbersQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="statistics.html" class="nav-btn">← Statistics</a>
+            <a href="algebra.html" class="nav-btn">Next: Algebra →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let numbersQuizAnswers = {};
+        let numbersProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            numbersQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit numbers quiz
+        function submitNumbersQuiz() {
+            const correctAnswers = {quiz1: 0, quiz2: 1, quiz3: 1};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (numbersQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            numbersProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('numbersProgress').style.width = `${numbersProgress}%`;
+            document.getElementById('progressText').textContent = `${numbersProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('numbersProgress', numbersProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${numbersProgress}%)`);
+        }
+
+        // Simplify radical
+        function simplifyRadical() {
+            const num = parseInt(document.getElementById('radicalInput').value);
+            
+            if (isNaN(num) || num < 0) {
+                document.getElementById('radicalResult').textContent = 'Please enter a valid positive number';
+                return;
+            }
+            
+            // Find largest perfect square factor
+            let largestFactor = 1;
+            for (let i = Math.floor(Math.sqrt(num)); i >= 1; i--) {
+                if (num % (i * i) === 0) {
+                    largestFactor = i * i;
+                    break;
+                }
+            }
+            
+            const coefficient = Math.sqrt(largestFactor);
+            const radicand = num / largestFactor;
+            
+            if (radicand === 1) {
+                document.getElementById('radicalResult').textContent = `√${num} = ${coefficient}`;
+            } else {
+                document.getElementById('radicalResult').textContent = `√${num} = ${coefficient}√${radicand}`;
+            }
+        }
+
+        // Convert to scientific notation
+        function convertToScientific() {
+            const input = document.getElementById('scientificInput').value;
+            const num = parseFloat(input);
+            
+            if (isNaN(num)) {
+                document.getElementById('scientificResult').textContent = 'Please enter a valid number';
+                return;
+            }
+            
+            if (num === 0) {
+                document.getElementById('scientificResult').textContent = '0 = 0 × 10⁰';
+                return;
+            }
+            
+            const absNum = Math.abs(num);
+            const exponent = Math.floor(Math.log10(absNum));
+            const coefficient = absNum / Math.pow(10, exponent);
+            
+            const sign = num < 0 ? '-' : '';
+            const expSign = exponent >= 0 ? '+' : '';
+            
+            document.getElementById('scientificResult').textContent = 
+                `${num} = ${sign}${coefficient.toFixed(6).replace(/\.?0+$/, '')} × 10${expSign}${exponent}`;
+        }
+
+        // Convert units
+        function convertUnits() {
+            const value = parseFloat(document.getElementById('unitValue').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            
+            if (isNaN(value)) {
+                document.getElementById('unitResult').textContent = 'Please enter a valid number';
+                return;
+            }
+            
+            // Conversion factors (to meters)
+            const factors = {
+                'km': 1000,
+                'm': 1,
+                'cm': 0.01
+            };
+            
+            // Convert to meters first, then to target unit
+            const meters = value * factors[fromUnit];
+            const result = meters / factors[toUnit];
+            
+            document.getElementById('unitResult').textContent = 
+                `${value} ${fromUnit} = ${result} ${toUnit}`;
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('numbersProgress') || 0;
+            numbersProgress = parseInt(savedProgress);
+            document.getElementById('numbersProgress').style.width = `${numbersProgress}%`;
+            document.getElementById('progressText').textContent = `${numbersProgress}% Complete`;
+        });
+    </script>
+</body>
+</html> 

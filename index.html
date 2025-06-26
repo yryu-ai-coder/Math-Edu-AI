@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9th Grade Math Learning Site</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="chapters/modeling.html">Modeling</a></li>
+            <li><a href="chapters/functions.html">Functions</a></li>
+            <li><a href="chapters/numbers.html">Number & Quantity</a></li>
+            <li><a href="chapters/algebra.html">Algebra</a></li>
+            <li><a href="chapters/geometry.html">Geometry</a></li>
+            <li><a href="chapters/statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>🎓 9th Grade Math Learning Site</h1>
+        <p>Mathematics learning based on Common Core State Standards</p>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Welcome! 👋</h2>
+            <p>This site helps you learn 9th grade mathematics systematically.</p>
+            <p>First, take the 8th grade modeling quiz to check your current level!</p>
+        </section>
+
+        <section class="quiz-section">
+            <h2>📝 8th Grade Modeling Diagnostic Quiz</h2>
+            <p>Take a 5-question quiz to assess your current level.</p>
+            <button id="startQuiz" class="btn-primary">Start Quiz</button>
+        </section>
+
+        <section class="curriculum-section">
+            <h2>📚 9th Grade Math Curriculum</h2>
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <h3>1. Modeling</h3>
+                    <p>Represent and analyze real-world situations mathematically</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/modeling.html'">Learn</button>
+                </div>
+                
+                <div class="curriculum-card">
+                    <h3>2. Functions</h3>
+                    <p>Function concepts, linear functions, exponential functions</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/functions.html'">Learn</button>
+                </div>
+                
+                <div class="curriculum-card">
+                    <h3>3. Number & Quantity</h3>
+                    <p>Extend number systems and work with quantities</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/numbers.html'">Learn</button>
+                </div>
+                
+                <div class="curriculum-card">
+                    <h3>4. Algebra</h3>
+                    <p>Linear equations, inequalities, systems of equations</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/algebra.html'">Learn</button>
+                </div>
+                
+                <div class="curriculum-card">
+                    <h3>5. Geometry</h3>
+                    <p>Congruent figures and geometric theorems</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/geometry.html'">Learn</button>
+                </div>
+                
+                <div class="curriculum-card">
+                    <h3>6. Statistics & Probability</h3>
+                    <p>Data analysis and probability concepts</p>
+                    <button class="btn-secondary" onclick="location.href='chapters/statistics.html'">Learn</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <h2>📊 Learning Progress</h2>
+            <div class="progress-container">
+                <div class="progress-item">
+                    <span>Modeling</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Functions</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Algebra</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Geometry</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span>Statistics</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="quizContainer">
+                <h2>8th Grade Modeling Diagnostic Quiz</h2>
+                <div id="quizProgress">Question 1/5</div>
+                <div id="questionContainer"></div>
+                <div id="answerContainer"></div>
+                <button id="nextQuestion" class="btn-primary" style="display: none;">Next Question</button>
+                <button id="submitQuiz" class="btn-primary" style="display: none;">Submit Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="resultContainer">
+                <h2>Quiz Results</h2>
+                <div id="scoreDisplay"></div>
+                <div id="recommendation"></div>
+                <button id="closeResult" class="btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 9th Grade Math Learning Site</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

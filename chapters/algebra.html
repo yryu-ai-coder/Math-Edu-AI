@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-solver {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #fff3e0;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .equation-display {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>🔢 Algebra</h1>
+        <p style="margin-bottom: 2.2rem;">Linear equations, inequalities, and systems of equations</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="algebraProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Solve linear equations and inequalities</li>
+                <li>Work with systems of linear equations</li>
+                <li>Understand algebraic expressions and operations</li>
+                <li>Apply algebraic methods to real-world problems</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. Linear Equations</h2>
+            <p>Linear equations have variables with power 1 and form straight lines when graphed.</p>
+            
+            <div class="example-box">
+                <h4>📐 Standard Form: ax + b = 0</h4>
+                <p><strong>Example:</strong> 2x + 3 = 7</p>
+                <p><strong>Solution:</strong></p>
+                <ol>
+                    <li>Subtract 3 from both sides: 2x = 4</li>
+                    <li>Divide both sides by 2: x = 2</li>
+                </ol>
+                <p><strong>Answer:</strong> x = 2</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: Linear Equations - Algebra</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ft2_QtXAnh8" 
+                            title="Linear Equations - Algebra" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video covers how to solve linear equations step by step for high school students.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📊 2. Linear Inequalities</h2>
+            <p>Linear inequalities use symbols like <, >, ≤, ≥ instead of =.</p>
+            
+            <div class="example-box">
+                <h4>📈 Example: Solving 3x - 2 > 7</h4>
+                <div class="equation-display">
+                    <p>3x - 2 > 7</p>
+                    <p>3x > 7 + 2</p>
+                    <p>3x > 9</p>
+                    <p>x > 3</p>
+                </div>
+                <p><strong>Note:</strong> When multiplying or dividing by a negative number, reverse the inequality sign.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>⚠️ Important Rule</h4>
+                <p>When you multiply or divide both sides of an inequality by a negative number, you must reverse the inequality sign.</p>
+                <div class="equation-display">
+                    <p>-2x > 6</p>
+                    <p>x < -3 (sign reversed!)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🔗 3. Systems of Linear Equations</h2>
+            <p>Systems of equations have multiple equations with the same variables.</p>
+            
+            <div class="example-box">
+                <h4>📋 Example: Solving by Substitution</h4>
+                <p>Solve the system:</p>
+                <div class="equation-display">
+                    <p>y = 2x + 1</p>
+                    <p>3x + y = 10</p>
+                </div>
+                <p><strong>Solution:</strong></p>
+                <div class="equation-display">
+                    <p>3x + (2x + 1) = 10</p>
+                    <p>3x + 2x + 1 = 10</p>
+                    <p>5x + 1 = 10</p>
+                    <p>5x = 9</p>
+                    <p>x = 1.8</p>
+                    <p>y = 2(1.8) + 1 = 4.6</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📊 Example: Solving by Elimination</h4>
+                <p>Solve the system:</p>
+                <div class="equation-display">
+                    <p>2x + 3y = 8</p>
+                    <p>4x - y = 6</p>
+                </div>
+                <p><strong>Solution:</strong></p>
+                <div class="equation-display">
+                    <p>Multiply second equation by 3:</p>
+                    <p>2x + 3y = 8</p>
+                    <p>12x - 3y = 18</p>
+                    <p>Add equations: 14x = 26</p>
+                    <p>x = 26/14 = 13/7</p>
+                    <p>Substitute to find y</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📐 4. Algebraic Expressions</h2>
+            <p>Algebraic expressions combine variables, numbers, and operations.</p>
+            
+            <div class="example-box">
+                <h4>🔢 Simplifying Expressions</h4>
+                <p>Simplify: 3x + 2y - x + 4y</p>
+                <div class="equation-display">
+                    <p>3x + 2y - x + 4y</p>
+                    <p>(3x - x) + (2y + 4y)</p>
+                    <p>2x + 6y</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📦 Factoring</h4>
+                <p>Factor: 6x² + 9x</p>
+                <div class="equation-display">
+                    <p>6x² + 9x</p>
+                    <p>3x(2x + 3)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Linear Equation</h4>
+                <p>Solve: 5x - 3 = 2x + 9</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> x = 4</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>5x - 3 = 2x + 9</p>
+                        <p>5x - 2x = 9 + 3</p>
+                        <p>3x = 12</p>
+                        <p>x = 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Linear Inequality</h4>
+                <p>Solve: -2x + 5 ≤ 11</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> x ≥ -3</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>-2x + 5 ≤ 11</p>
+                        <p>-2x ≤ 6</p>
+                        <p>x ≥ -3 (sign reversed!)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: System of Equations</h4>
+                <p>Solve the system: x + y = 5 and 2x - y = 1</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> x = 2, y = 3</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>x + y = 5</p>
+                        <p>2x - y = 1</p>
+                        <p>Add equations: 3x = 6</p>
+                        <p>x = 2</p>
+                        <p>Substitute: 2 + y = 5</p>
+                        <p>y = 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Algebra Quiz</h2>
+            <div id="algebraQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>Solve: 3x + 7 = 22</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">x = 3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">x = 5</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">x = 7</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">x = 9</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>Solve: -4x > 12</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">x > -3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">x < -3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">x > 3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">x < 3</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>In the system x + y = 6 and x - y = 2, what is x?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">2</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">4</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">5</div>
+                </div>
+            </div>
+            <button id="submitAlgebraQuiz" class="btn-primary" onclick="submitAlgebraQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="functions.html" class="nav-btn">← Functions</a>
+            <a href="geometry.html" class="nav-btn">Next: Geometry →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let algebraQuizAnswers = {};
+        let algebraProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            algebraQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit algebra quiz
+        function submitAlgebraQuiz() {
+            const correctAnswers = {quiz1: 1, quiz2: 1, quiz3: 2};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (algebraQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            algebraProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('algebraProgress').style.width = `${algebraProgress}%`;
+            document.getElementById('progressText').textContent = `${algebraProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('algebraProgress', algebraProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${algebraProgress}%)`);
+        }
+
+        // Solve equation
+        function solveEquation() {
+            const a = parseFloat(document.getElementById('coeffA').value);
+            const b = parseFloat(document.getElementById('coeffB').value);
+            const c = parseFloat(document.getElementById('coeffC').value);
+            
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                document.getElementById('equationSolution').textContent = 'Please enter valid numbers';
+                return;
+            }
+            
+            if (a === 0) {
+                document.getElementById('equationSolution').textContent = 'No solution (a cannot be 0)';
+                return;
+            }
+            
+            const x = (c - b) / a;
+            document.getElementById('equationSolution').textContent = `x = ${x}`;
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('algebraProgress') || 0;
+            algebraProgress = parseInt(savedProgress);
+            document.getElementById('algebraProgress').style.width = `${algebraProgress}%`;
+            document.getElementById('progressText').textContent = `${algebraProgress}% Complete`;
+        });
+    </script>
+</body>
+</html> 

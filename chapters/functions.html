@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-graph {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .function-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .function-table th, .function-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .function-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📈 Functions</h1>
+        <p style="margin-bottom: 2.2rem;">Understanding function concepts, linear functions, and exponential functions</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="functionsProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Understand the concept of functions and their representations</li>
+                <li>Work with linear functions and their graphs</li>
+                <li>Explore exponential functions and their properties</li>
+                <li>Analyze function behavior and transformations</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. What is a Function?</h2>
+            <p>A function is a relationship where each input (x) has exactly one output (y).</p>
+            
+            <div class="example-box">
+                <h4>🔢 Example: Temperature Conversion</h4>
+                <p>Converting Celsius to Fahrenheit: F = (9/5)C + 32</p>
+                <p>For each Celsius temperature, there's exactly one Fahrenheit temperature.</p>
+                <table class="function-table">
+                    <tr>
+                        <th>Celsius (C)</th>
+                        <th>Fahrenheit (F)</th>
+                    </tr>
+                    <tr>
+                        <td>0°C</td>
+                        <td>32°F</td>
+                    </tr>
+                    <tr>
+                        <td>10°C</td>
+                        <td>50°F</td>
+                    </tr>
+                    <tr>
+                        <td>20°C</td>
+                        <td>68°F</td>
+                    </tr>
+                    <tr>
+                        <td>30°C</td>
+                        <td>86°F</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: Algebra Basics: What Are Functions? - Math Antics</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/52tpYl2tTqk" 
+                            title="Algebra Basics: What Are Functions? - Math Antics" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video explains the concept of functions in algebra with easy-to-understand visuals and examples.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📈 2. Linear Functions</h2>
+            <p>Linear functions have the form f(x) = mx + b, where m is the slope and b is the y-intercept.</p>
+            
+            <div class="example-box">
+                <h4>💰 Example: Salary Calculation</h4>
+                <p>If you earn $30,000 base salary plus $2,000 commission per sale:</p>
+                <p><strong>S(x) = 2000x + 30000</strong></p>
+                <p>Where x is the number of sales and S(x) is the total salary.</p>
+            </div>
+
+            <div class="interactive-graph">
+                <h4>📊 Interactive Linear Function</h4>
+                <canvas id="linearFunctionGraph" width="400" height="300"></canvas>
+                <br>
+                <label>Slope (m): <input type="range" id="linearSlope" min="-5" max="5" value="2" step="0.5"></label>
+                <span id="linearSlopeValue">2</span>
+                <br>
+                <label>y-intercept (b): <input type="range" id="linearIntercept" min="-10" max="10" value="0" step="1"></label>
+                <span id="linearInterceptValue">0</span>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📊 3. Function Notation</h2>
+            <p>Functions can be written as f(x) = expression, where f is the function name and x is the input.</p>
+            
+            <div class="example-box">
+                <h4>📝 Examples:</h4>
+                <ul>
+                    <li><strong>f(x) = 2x + 3</strong> - Linear function</li>
+                    <li><strong>g(x) = x²</strong> - Quadratic function</li>
+                    <li><strong>h(x) = 2^x</strong> - Exponential function</li>
+                </ul>
+                <p>To find f(5) in f(x) = 2x + 3: f(5) = 2(5) + 3 = 13</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📈 4. Exponential Functions</h2>
+            <p>Exponential functions have the form f(x) = a·b^x, where a is the initial value and b is the growth factor.</p>
+            
+            <div class="example-box">
+                <h4>🦠 Example: Bacterial Growth</h4>
+                <p>If bacteria double every hour starting with 100 bacteria:</p>
+                <p><strong>N(t) = 100 × 2^t</strong></p>
+                <p>Where t is time in hours and N(t) is the number of bacteria.</p>
+                <table class="function-table">
+                    <tr>
+                        <th>Time (hours)</th>
+                        <th>Bacteria Count</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>400</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>800</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="interactive-graph">
+                <h4>📈 Interactive Exponential Function</h4>
+                <canvas id="exponentialGraph" width="400" height="300"></canvas>
+                <br>
+                <label>Base (b): <input type="range" id="exponentialBase" min="1.1" max="3" value="2" step="0.1"></label>
+                <span id="exponentialBaseValue">2</span>
+                <br>
+                <label>Initial Value (a): <input type="range" id="exponentialInitial" min="1" max="10" value="1" step="1"></label>
+                <span id="exponentialInitialValue">1</span>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Function Evaluation</h4>
+                <p>Given f(x) = 3x - 2, find f(4) and f(-1).</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> f(4) = 10, f(-1) = -5</p>
+                    <p><strong>Explanation:</strong> f(4) = 3(4) - 2 = 12 - 2 = 10</p>
+                    <p>f(-1) = 3(-1) - 2 = -3 - 2 = -5</p>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Linear Function from Points</h4>
+                <p>Find the linear function that passes through points (2, 5) and (4, 9).</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> f(x) = 2x + 1</p>
+                    <p><strong>Explanation:</strong> Slope = (9-5)/(4-2) = 4/2 = 2</p>
+                    <p>Using point (2,5): 5 = 2(2) + b → 5 = 4 + b → b = 1</p>
+                    <p>So f(x) = 2x + 1</p>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: Exponential Function</h4>
+                <p>If a population starts with 500 and grows by 20% each year, find the function P(t).</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> P(t) = 500 × (1.2)^t</p>
+                    <p><strong>Explanation:</strong> 20% growth means the growth factor is 1.2 (100% + 20% = 120% = 1.2)</p>
+                    <p>Initial value is 500, so P(t) = 500 × (1.2)^t</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Functions Quiz</h2>
+            <div id="functionsQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>If f(x) = 2x + 3, what is f(5)?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">10</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">13</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">15</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">17</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>What is the slope of the line passing through (1, 3) and (3, 7)?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">1</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">2</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">4</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>If a quantity doubles every 3 hours, what is the growth factor per hour?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">2</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">2^(1/3)</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">3</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">1.5</div>
+                </div>
+            </div>
+            <button id="submitFunctionsQuiz" class="btn-primary" onclick="submitFunctionsQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="modeling.html" class="nav-btn">← Modeling</a>
+            <a href="algebra.html" class="nav-btn">Next: Algebra →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let functionsQuizAnswers = {};
+        let functionsProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            functionsQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit functions quiz
+        function submitFunctionsQuiz() {
+            const correctAnswers = {quiz1: 1, quiz2: 1, quiz3: 1};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (functionsQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            functionsProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('functionsProgress').style.width = `${functionsProgress}%`;
+            document.getElementById('progressText').textContent = `${functionsProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('functionsProgress', functionsProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${functionsProgress}%)`);
+        }
+
+        // Draw linear function graph
+        function drawLinearFunctionGraph() {
+            const canvas = document.getElementById('linearFunctionGraph');
+            const ctx = canvas.getContext('2d');
+            const slope = parseFloat(document.getElementById('linearSlope').value);
+            const intercept = parseFloat(document.getElementById('linearIntercept').value);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height/2);
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.moveTo(canvas.width/2, 0);
+            ctx.lineTo(canvas.width/2, canvas.height);
+            ctx.stroke();
+            
+            // Draw function graph
+            ctx.strokeStyle = '#4caf50';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let x = -10; x <= 10; x += 0.1) {
+                const y = slope * x + intercept;
+                const canvasX = (x + 10) * (canvas.width / 20);
+                const canvasY = canvas.height/2 - y * (canvas.height / 20);
+                if (x === -10) {
+                    ctx.moveTo(canvasX, canvasY);
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Draw exponential graph
+        function drawExponentialGraph() {
+            const canvas = document.getElementById('exponentialGraph');
+            const ctx = canvas.getContext('2d');
+            const base = parseFloat(document.getElementById('exponentialBase').value);
+            const initial = parseFloat(document.getElementById('exponentialInitial').value);
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, canvas.height);
+            ctx.stroke();
+            
+            // Draw function graph
+            ctx.strokeStyle = '#ff9800';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let x = 0; x <= 5; x += 0.1) {
+                const y = initial * Math.pow(base, x);
+                const canvasX = x * (canvas.width / 5);
+                const canvasY = canvas.height - (y * (canvas.height / 50));
+                if (x === 0) {
+                    ctx.moveTo(canvasX, canvasY);
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+            ctx.stroke();
+        }
+
+        // Slider events for linear function
+        document.getElementById('linearSlope').addEventListener('input', function() {
+            document.getElementById('linearSlopeValue').textContent = this.value;
+            drawLinearFunctionGraph();
+        });
+
+        document.getElementById('linearIntercept').addEventListener('input', function() {
+            document.getElementById('linearInterceptValue').textContent = this.value;
+            drawLinearFunctionGraph();
+        });
+
+        // Slider events for exponential function
+        document.getElementById('exponentialBase').addEventListener('input', function() {
+            document.getElementById('exponentialBaseValue').textContent = this.value;
+            drawExponentialGraph();
+        });
+
+        document.getElementById('exponentialInitial').addEventListener('input', function() {
+            document.getElementById('exponentialInitialValue').textContent = this.value;
+            drawExponentialGraph();
+        });
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('functionsProgress') || 0;
+            functionsProgress = parseInt(savedProgress);
+            document.getElementById('functionsProgress').style.width = `${functionsProgress}%`;
+            document.getElementById('progressText').textContent = `${functionsProgress}% Complete`;
+            
+            // Initialize graphs
+            drawLinearFunctionGraph();
+            drawExponentialGraph();
+        });
+    </script>
+</body>
+</html> 

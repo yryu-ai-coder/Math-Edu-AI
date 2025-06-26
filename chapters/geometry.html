@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f3e5f5 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-geometry {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .geometry-canvas {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .theorem-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📐 Geometry</h1>
+        <p style="margin-bottom: 2.2rem;">Congruent figures and geometric theorems</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="geometryProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Understand congruent figures and their properties</li>
+                <li>Learn geometric theorems and proofs</li>
+                <li>Work with triangles and their properties</li>
+                <li>Apply geometric concepts to solve problems</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📐 1. Congruent Figures</h2>
+            <p>Two figures are congruent if they have the same shape and size.</p>
+            
+            <div class="example-box">
+                <h4>🔍 Congruent Triangles</h4>
+                <p>Two triangles are congruent if their corresponding sides and angles are equal.</p>
+                <p><strong>Congruence Criteria:</strong></p>
+                <ul>
+                    <li>SSS (Side-Side-Side): All three sides are equal</li>
+                    <li>SAS (Side-Angle-Side): Two sides and the included angle are equal</li>
+                    <li>ASA (Angle-Side-Angle): Two angles and the included side are equal</li>
+                    <li>AAS (Angle-Angle-Side): Two angles and a non-included side are equal</li>
+                </ul>
+            </div>
+
+            <div class="interactive-geometry">
+                <h4>📐 Interactive Congruent Triangles</h4>
+                <canvas id="congruentTriangles" width="400" height="300" class="geometry-canvas"></canvas>
+                <br>
+                <button class="btn-secondary" onclick="drawCongruentTriangles()">Draw Congruent Triangles</button>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📏 2. Triangle Properties</h2>
+            <p>Triangles have special properties that help us solve geometric problems.</p>
+            
+            <div class="theorem-box">
+                <h4>📐 Triangle Sum Theorem</h4>
+                <p>The sum of the interior angles of a triangle is always 180°.</p>
+                <div class="equation-display">
+                    <p>∠A + ∠B + ∠C = 180°</p>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Example: Finding Missing Angle</h4>
+                <p>In triangle ABC, if ∠A = 60° and ∠B = 45°, find ∠C.</p>
+                <div class="equation-display">
+                    <p>∠A + ∠B + ∠C = 180°</p>
+                    <p>60° + 45° + ∠C = 180°</p>
+                    <p>105° + ∠C = 180°</p>
+                    <p>∠C = 180° - 105° = 75°</p>
+                </div>
+            </div>
+
+            <div class="interactive-geometry">
+                <h4>📐 Triangle Angle Calculator</h4>
+                <p>Angle A: <input type="number" id="angleA" placeholder="60" style="width: 60px;">°</p>
+                <p>Angle B: <input type="number" id="angleB" placeholder="45" style="width: 60px;">°</p>
+                <button class="btn-secondary" onclick="calculateThirdAngle()">Calculate Angle C</button>
+                <div id="angleResult" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🔗 3. Parallel Lines and Transversals</h2>
+            <p>When a transversal crosses parallel lines, special angle relationships are created.</p>
+            
+            <div class="theorem-box">
+                <h4>📐 Corresponding Angles</h4>
+                <p>When a transversal crosses parallel lines, corresponding angles are equal.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Example: Finding Angles</h4>
+                <p>If two parallel lines are cut by a transversal and one angle is 120°, find the other angles.</p>
+                <div class="equation-display">
+                    <p>Corresponding angle = 120°</p>
+                    <p>Alternate interior angle = 120°</p>
+                    <p>Vertical angle = 120°</p>
+                    <p>Supplementary angle = 180° - 120° = 60°</p>
+                </div>
+            </div>
+
+            <div class="interactive-geometry">
+                <h4>📐 Parallel Lines and Transversal</h4>
+                <canvas id="parallelLines" width="400" height="300" class="geometry-canvas"></canvas>
+                <br>
+                <button class="btn-secondary" onclick="drawParallelLines()">Draw Parallel Lines</button>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. Pythagorean Theorem</h2>
+            <p>In a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.</p>
+            
+            <div class="example-box">
+                <h4>📐 Formula: a² + b² = c²</h4>
+                <p><strong>Where:</strong></p>
+                <ul>
+                    <li>a, b = legs of the right triangle</li>
+                    <li>c = hypotenuse (longest side, opposite to right angle)</li>
+                </ul>
+                <p><strong>Example:</strong> If a = 3 and b = 4, find c.</p>
+                <p>c² = 3² + 4² = 9 + 16 = 25</p>
+                <p>c = √25 = 5</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: An Introduction to the Pythagorean Theorem</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nCD-bAEbB3I" 
+                            title="An Introduction to the Pythagorean Theorem" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video introduces the Pythagorean Theorem with clear explanations and practical examples.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Triangle Angles</h4>
+                <p>In triangle ABC, ∠A = 50° and ∠B = 70°. Find ∠C.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> ∠C = 60°</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>∠A + ∠B + ∠C = 180°</p>
+                        <p>50° + 70° + ∠C = 180°</p>
+                        <p>120° + ∠C = 180°</p>
+                        <p>∠C = 180° - 120° = 60°</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Pythagorean Theorem</h4>
+                <p>In a right triangle, if the legs are 6 and 8, find the hypotenuse.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> Hypotenuse = 10</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>a² + b² = c²</p>
+                        <p>6² + 8² = c²</p>
+                        <p>36 + 64 = c²</p>
+                        <p>100 = c²</p>
+                        <p>c = √100 = 10</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: Congruent Triangles</h4>
+                <p>If triangle ABC ≅ triangle DEF and AB = 5, BC = 7, AC = 6, find the sides of triangle DEF.</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> DE = 5, EF = 7, DF = 6</p>
+                    <p><strong>Solution:</strong> Since the triangles are congruent, corresponding sides are equal.</p>
+                    <p>DE = AB = 5</p>
+                    <p>EF = BC = 7</p>
+                    <p>DF = AC = 6</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Geometry Quiz</h2>
+            <div id="geometryQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>In a triangle, if two angles are 45° and 60°, what is the third angle?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">45°</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">60°</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">75°</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">90°</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>In a right triangle with legs 5 and 12, what is the hypotenuse?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">13</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">15</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">17</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">19</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>If two triangles are congruent, which of the following must be true?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">They have the same area</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">They have the same perimeter</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">All corresponding sides and angles are equal</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">They have the same shape</div>
+                </div>
+            </div>
+            <button id="submitGeometryQuiz" class="btn-primary" onclick="submitGeometryQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="algebra.html" class="nav-btn">← Algebra</a>
+            <a href="statistics.html" class="nav-btn">Next: Statistics →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let geometryQuizAnswers = {};
+        let geometryProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            geometryQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit geometry quiz
+        function submitGeometryQuiz() {
+            const correctAnswers = {quiz1: 2, quiz2: 0, quiz3: 2};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (geometryQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            geometryProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('geometryProgress').style.width = `${geometryProgress}%`;
+            document.getElementById('progressText').textContent = `${geometryProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('geometryProgress', geometryProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${geometryProgress}%)`);
+        }
+
+        // Draw congruent triangles
+        function drawCongruentTriangles() {
+            const canvas = document.getElementById('congruentTriangles');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw first triangle
+            ctx.strokeStyle = '#4caf50';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(50, 200);
+            ctx.lineTo(150, 200);
+            ctx.lineTo(100, 100);
+            ctx.closePath();
+            ctx.stroke();
+            
+            // Draw second triangle (congruent)
+            ctx.strokeStyle = '#ff9800';
+            ctx.beginPath();
+            ctx.moveTo(250, 200);
+            ctx.lineTo(350, 200);
+            ctx.lineTo(300, 100);
+            ctx.closePath();
+            ctx.stroke();
+            
+            // Add labels
+            ctx.fillStyle = '#333';
+            ctx.font = '16px Arial';
+            ctx.fillText('Triangle 1', 80, 220);
+            ctx.fillText('Triangle 2', 280, 220);
+            ctx.fillText('≅', 200, 150);
+        }
+
+        // Draw parallel lines
+        function drawParallelLines() {
+            const canvas = document.getElementById('parallelLines');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw parallel lines
+            ctx.strokeStyle = '#4caf50';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(50, 100);
+            ctx.lineTo(350, 100);
+            ctx.moveTo(50, 200);
+            ctx.lineTo(350, 200);
+            ctx.stroke();
+            
+            // Draw transversal
+            ctx.strokeStyle = '#ff9800';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(200, 50);
+            ctx.lineTo(200, 250);
+            ctx.stroke();
+            
+            // Add angle labels
+            ctx.fillStyle = '#333';
+            ctx.font = '14px Arial';
+            ctx.fillText('∠1', 220, 80);
+            ctx.fillText('∠2', 220, 120);
+            ctx.fillText('∠3', 220, 180);
+            ctx.fillText('∠4', 220, 220);
+        }
+
+        // Calculate third angle
+        function calculateThirdAngle() {
+            const angleA = parseFloat(document.getElementById('angleA').value);
+            const angleB = parseFloat(document.getElementById('angleB').value);
+            
+            if (isNaN(angleA) || isNaN(angleB)) {
+                document.getElementById('angleResult').textContent = 'Please enter valid angles';
+                return;
+            }
+            
+            if (angleA + angleB >= 180) {
+                document.getElementById('angleResult').textContent = 'Invalid angles (sum ≥ 180°)';
+                return;
+            }
+            
+            const angleC = 180 - angleA - angleB;
+            document.getElementById('angleResult').textContent = `Angle C = ${angleC}°`;
+        }
+
+        // Calculate hypotenuse
+        function calculateHypotenuse() {
+            const legA = parseFloat(document.getElementById('legA').value);
+            const legB = parseFloat(document.getElementById('legB').value);
+            
+            if (isNaN(legA) || isNaN(legB)) {
+                document.getElementById('pythagoreanResult').textContent = 'Please enter valid numbers';
+                return;
+            }
+            
+            const hypotenuse = Math.sqrt(legA * legA + legB * legB);
+            document.getElementById('pythagoreanResult').textContent = `Hypotenuse = ${hypotenuse.toFixed(2)}`;
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('geometryProgress') || 0;
+            geometryProgress = parseInt(savedProgress);
+            document.getElementById('geometryProgress').style.width = `${geometryProgress}%`;
+            document.getElementById('progressText').textContent = `${geometryProgress}% Complete`;
+            
+            // Initialize drawings
+            drawCongruentTriangles();
+            drawParallelLines();
+        });
+    </script>
+</body>
+</html> 

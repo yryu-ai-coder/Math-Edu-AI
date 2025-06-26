@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics & Probability - 9th Grade Math</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .example-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e8f5e8 100%);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #9c27b0;
+        }
+        
+        .practice-problem {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .solution {
+            display: none;
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .interactive-chart {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .progress-indicator {
+            background: #f3e5f5;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .data-table th {
+            background-color: #f2f2f2;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Button -->
+    <button id="hamburgerMenu" aria-label="Open chapter menu">
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
+    </button>
+    <!-- Sidebar Menu -->
+    <nav id="sidebarMenu">
+        <div class="sidebar-header">
+            <h2>Chapters</h2>
+            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
+        </div>
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="modeling.html">Modeling</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="numbers.html">Number & Quantity</a></li>
+            <li><a href="algebra.html">Algebra</a></li>
+            <li><a href="geometry.html">Geometry</a></li>
+            <li><a href="statistics.html">Statistics & Probability</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>📊 Statistics & Probability</h1>
+        <p style="margin-bottom: 2.2rem;">Data analysis and probability concepts</p>
+        <a href="../index.html" class="btn-secondary" style="margin-top: 1rem;">← Back to Home</a>
+    </header>
+
+    <main>
+        <div class="progress-indicator">
+            <h3>Learning Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="statisticsProgress" style="width: 0%"></div>
+            </div>
+            <span id="progressText">0% Complete</span>
+        </div>
+
+        <section class="lesson-content">
+            <h2>🎯 Learning Objectives</h2>
+            <ul>
+                <li>Understand measures of central tendency (mean, median, mode)</li>
+                <li>Learn about data distributions and variability</li>
+                <li>Calculate probabilities of simple events</li>
+                <li>Interpret statistical data and graphs</li>
+            </ul>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📖 1. Mean, Median, and Mode</h2>
+            <p>These are three different ways to describe the "center" of a data set.</p>
+            
+            <div class="example-box">
+                <h4>📊 Example Data Set: 2, 4, 4, 6, 8, 10</h4>
+                <p><strong>Mean (Average):</strong> (2+4+4+6+8+10) ÷ 6 = 34 ÷ 6 = 5.67</p>
+                <p><strong>Median (Middle):</strong> 4, 6 → (4+6) ÷ 2 = 5</p>
+                <p><strong>Mode (Most Frequent):</strong> 4 (appears twice)</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Video Tutorial: Math Antics - Mean, Median and Mode</h4>
+                <div style="text-align: center; margin: 1rem 0;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/B1HEzNTGeZ4" 
+                            title="Math Antics - Mean, Median and Mode" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen style="max-width: 100%; border-radius: 10px;">
+                    </iframe>
+                </div>
+                <p><strong>Description:</strong> This video explains mean, median, and mode with fun and clear visuals for students.</p>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📊 2. Measures of Central Tendency</h2>
+            <p>Central tendency measures help us understand the "center" of a data set.</p>
+            
+            <div class="example-box">
+                <h4>📈 Example: Test Scores</h4>
+                <p>Consider the test scores: 85, 92, 78, 96, 88, 85, 90</p>
+                <table class="data-table">
+                    <tr>
+                        <th>Measure</th>
+                        <th>Calculation</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>Mean</td>
+                        <td>(85+92+78+96+88+85+90) ÷ 7</td>
+                        <td>87.7</td>
+                    </tr>
+                    <tr>
+                        <td>Median</td>
+                        <td>Middle value when ordered</td>
+                        <td>88</td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td>Most frequent value</td>
+                        <td>85</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="interactive-chart">
+                <h4>📊 Interactive Data Analyzer</h4>
+                <p>Enter numbers separated by commas:</p>
+                <input type="text" id="dataInput" placeholder="85, 92, 78, 96, 88, 85, 90" style="width: 300px; padding: 8px;">
+                <br><br>
+                <button class="btn-secondary" onclick="analyzeData()">Calculate Statistics</button>
+                <div id="dataResults" style="margin-top: 1rem; text-align: left;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📈 2. Data Distributions</h2>
+            <p>Understanding how data is distributed helps us interpret patterns.</p>
+            
+            <div class="example-box">
+                <h4>📊 Types of Distributions</h4>
+                <ul>
+                    <li><strong>Normal Distribution:</strong> Bell-shaped, symmetric around the mean</li>
+                    <li><strong>Skewed Distribution:</strong> Asymmetric, with a long tail on one side</li>
+                    <li><strong>Uniform Distribution:</strong> All values occur with equal frequency</li>
+                </ul>
+            </div>
+
+            <div class="interactive-chart">
+                <h4>📈 Distribution Visualizer</h4>
+                <canvas id="distributionChart" width="400" height="300"></canvas>
+                <br>
+                <button class="btn-secondary" onclick="drawNormalDistribution()">Normal Distribution</button>
+                <button class="btn-secondary" onclick="drawSkewedDistribution()">Skewed Distribution</button>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎲 3. Probability Basics</h2>
+            <p>Probability measures the likelihood of an event occurring.</p>
+            
+            <div class="example-box">
+                <h4>🎯 Probability Formula</h4>
+                <p><strong>P(event) = Number of favorable outcomes / Total number of possible outcomes</strong></p>
+                <p>Probability ranges from 0 (impossible) to 1 (certain).</p>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 Example: Rolling a Die</h4>
+                <p>What is the probability of rolling a 3 on a fair six-sided die?</p>
+                <div class="equation-display">
+                    <p>P(rolling 3) = 1/6 ≈ 0.167 or 16.7%</p>
+                </div>
+                <p>There is 1 favorable outcome (rolling a 3) out of 6 possible outcomes.</p>
+            </div>
+
+            <div class="interactive-chart">
+                <h4>🎲 Probability Calculator</h4>
+                <p>Favorable outcomes: <input type="number" id="favorable" placeholder="1" style="width: 60px;"></p>
+                <p>Total outcomes: <input type="number" id="total" placeholder="6" style="width: 60px;"></p>
+                <button class="btn-secondary" onclick="calculateProbability()">Calculate Probability</button>
+                <div id="probabilityResult" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>📊 4. Data Visualization</h2>
+            <p>Charts and graphs help us understand data patterns visually.</p>
+            
+            <div class="example-box">
+                <h4>📈 Types of Charts</h4>
+                <ul>
+                    <li><strong>Bar Chart:</strong> Shows categorical data</li>
+                    <li><strong>Line Chart:</strong> Shows trends over time</li>
+                    <li><strong>Pie Chart:</strong> Shows parts of a whole</li>
+                    <li><strong>Histogram:</strong> Shows frequency distribution</li>
+                </ul>
+            </div>
+
+            <div class="interactive-chart">
+                <h4>📊 Interactive Bar Chart</h4>
+                <canvas id="barChart" width="400" height="300"></canvas>
+                <br>
+                <button class="btn-secondary" onclick="drawBarChart()">Generate Bar Chart</button>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>✏️ Practice Problems</h2>
+            
+            <div class="practice-problem">
+                <h4>Problem 1: Mean Calculation</h4>
+                <p>Find the mean of the numbers: 12, 15, 18, 20, 25</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol1')">Show Solution</button>
+                <div id="sol1" class="solution">
+                    <p><strong>Answer:</strong> Mean = 18</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>Mean = (12 + 15 + 18 + 20 + 25) ÷ 5</p>
+                        <p>Mean = 90 ÷ 5 = 18</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 2: Probability</h4>
+                <p>In a bag of 20 marbles, 5 are red, 8 are blue, and 7 are green. What is the probability of drawing a red marble?</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol2')">Show Solution</button>
+                <div id="sol2" class="solution">
+                    <p><strong>Answer:</strong> P(red) = 1/4 or 25%</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>P(red) = Number of red marbles / Total marbles</p>
+                        <p>P(red) = 5/20 = 1/4 = 0.25 = 25%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="practice-problem">
+                <h4>Problem 3: Median</h4>
+                <p>Find the median of: 3, 7, 2, 9, 1, 8, 4</p>
+                <button class="btn-secondary" onclick="toggleSolution('sol3')">Show Solution</button>
+                <div id="sol3" class="solution">
+                    <p><strong>Answer:</strong> Median = 4</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="equation-display">
+                        <p>Ordered data: 1, 2, 3, 4, 7, 8, 9</p>
+                        <p>Middle value (4th position): 4</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-content">
+            <h2>🎯 Statistics Quiz</h2>
+            <div id="statisticsQuiz">
+                <div class="practice-problem">
+                    <h4>Quiz 1</h4>
+                    <p>What is the mean of 10, 15, 20, 25, 30?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 0)">15</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 1)">18</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 2)">20</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz1', 3)">25</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 2</h4>
+                    <p>If you flip a coin, what is the probability of getting heads?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 0)">0.25</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 1)">0.5</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 2)">0.75</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz2', 3)">1.0</div>
+                </div>
+
+                <div class="practice-problem">
+                    <h4>Quiz 3</h4>
+                    <p>What is the median of 5, 8, 12, 15, 20?</p>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 0)">8</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 1)">10</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 2)">12</div>
+                    <div class="answer-option" onclick="checkAnswer('quiz3', 3)">15</div>
+                </div>
+            </div>
+            <button id="submitStatisticsQuiz" class="btn-primary" onclick="submitStatisticsQuiz()">Submit Quiz</button>
+        </section>
+
+        <div class="nav-buttons">
+            <a href="geometry.html" class="nav-btn">← Geometry</a>
+            <a href="numbers.html" class="nav-btn">Next: Number & Quantity →</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+        let statisticsQuizAnswers = {};
+        let statisticsProgress = 0;
+
+        // Toggle solution
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.style.display = solution.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Check quiz answer
+        function checkAnswer(quizId, selectedIndex) {
+            const options = document.querySelectorAll(`#${quizId} .answer-option`);
+            options.forEach(option => option.classList.remove('selected'));
+            options[selectedIndex].classList.add('selected');
+            statisticsQuizAnswers[quizId] = selectedIndex;
+        }
+
+        // Submit statistics quiz
+        function submitStatisticsQuiz() {
+            const correctAnswers = {quiz1: 2, quiz2: 1, quiz3: 2};
+            let correctCount = 0;
+            
+            for (let quiz in correctAnswers) {
+                if (statisticsQuizAnswers[quiz] === correctAnswers[quiz]) {
+                    correctCount++;
+                }
+            }
+            
+            statisticsProgress = Math.round((correctCount / 3) * 100);
+            
+            // Update progress
+            document.getElementById('statisticsProgress').style.width = `${statisticsProgress}%`;
+            document.getElementById('progressText').textContent = `${statisticsProgress}% Complete`;
+            
+            // Save to local storage
+            localStorage.setItem('statisticsProgress', statisticsProgress);
+            
+            alert(`Quiz completed! ${correctCount}/3 correct (${statisticsProgress}%)`);
+        }
+
+        // Analyze data
+        function analyzeData() {
+            const input = document.getElementById('dataInput').value;
+            const numbers = input.split(',').map(x => parseFloat(x.trim())).filter(x => !isNaN(x));
+            
+            if (numbers.length === 0) {
+                document.getElementById('dataResults').innerHTML = '<p style="color: red;">Please enter valid numbers</p>';
+                return;
+            }
+            
+            // Calculate mean
+            const mean = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+            
+            // Calculate median
+            const sorted = numbers.slice().sort((a, b) => a - b);
+            const median = sorted.length % 2 === 0 
+                ? (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2
+                : sorted[Math.floor(sorted.length/2)];
+            
+            // Calculate mode
+            const frequency = {};
+            numbers.forEach(num => frequency[num] = (frequency[num] || 0) + 1);
+            const maxFreq = Math.max(...Object.values(frequency));
+            const mode = Object.keys(frequency).filter(key => frequency[key] === maxFreq);
+            
+            document.getElementById('dataResults').innerHTML = `
+                <h4>Results:</h4>
+                <p><strong>Mean:</strong> ${mean.toFixed(2)}</p>
+                <p><strong>Median:</strong> ${median}</p>
+                <p><strong>Mode:</strong> ${mode.join(', ')}</p>
+                <p><strong>Count:</strong> ${numbers.length}</p>
+            `;
+        }
+
+        // Calculate probability
+        function calculateProbability() {
+            const favorable = parseFloat(document.getElementById('favorable').value);
+            const total = parseFloat(document.getElementById('total').value);
+            
+            if (isNaN(favorable) || isNaN(total) || total === 0) {
+                document.getElementById('probabilityResult').textContent = 'Please enter valid numbers';
+                return;
+            }
+            
+            if (favorable > total) {
+                document.getElementById('probabilityResult').textContent = 'Favorable cannot exceed total';
+                return;
+            }
+            
+            const probability = favorable / total;
+            const percentage = probability * 100;
+            
+            document.getElementById('probabilityResult').textContent = 
+                `Probability: ${probability.toFixed(3)} (${percentage.toFixed(1)}%)`;
+        }
+
+        // Draw normal distribution
+        function drawNormalDistribution() {
+            const canvas = document.getElementById('distributionChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height/2);
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.moveTo(canvas.width/2, 0);
+            ctx.lineTo(canvas.width/2, canvas.height);
+            ctx.stroke();
+            
+            // Draw normal distribution curve
+            ctx.strokeStyle = '#9c27b0';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let x = -3; x <= 3; x += 0.1) {
+                const y = Math.exp(-(x*x)/2) / Math.sqrt(2 * Math.PI);
+                const canvasX = (x + 3) * (canvas.width / 6);
+                const canvasY = canvas.height/2 - y * (canvas.height / 2);
+                if (x === -3) {
+                    ctx.moveTo(canvasX, canvasY);
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+            ctx.stroke();
+            
+            // Add labels
+            ctx.fillStyle = '#333';
+            ctx.font = '14px Arial';
+            ctx.fillText('Normal Distribution', 10, 20);
+        }
+
+        // Draw skewed distribution
+        function drawSkewedDistribution() {
+            const canvas = document.getElementById('distributionChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height/2);
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.moveTo(canvas.width/2, 0);
+            ctx.lineTo(canvas.width/2, canvas.height);
+            ctx.stroke();
+            
+            // Draw skewed distribution curve
+            ctx.strokeStyle = '#ff9800';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let x = 0; x <= 4; x += 0.1) {
+                const y = x * Math.exp(-x);
+                const canvasX = x * (canvas.width / 4);
+                const canvasY = canvas.height/2 - y * (canvas.height / 2);
+                if (x === 0) {
+                    ctx.moveTo(canvasX, canvasY);
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+            ctx.stroke();
+            
+            // Add labels
+            ctx.fillStyle = '#333';
+            ctx.font = '14px Arial';
+            ctx.fillText('Skewed Distribution', 10, 20);
+        }
+
+        // Draw bar chart
+        function drawBarChart() {
+            const canvas = document.getElementById('barChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Sample data
+            const data = [
+                {label: 'A', value: 20},
+                {label: 'B', value: 35},
+                {label: 'C', value: 15},
+                {label: 'D', value: 30}
+            ];
+            
+            const maxValue = Math.max(...data.map(d => d.value));
+            const barWidth = canvas.width / data.length * 0.8;
+            const barSpacing = canvas.width / data.length * 0.2;
+            
+            // Draw bars
+            data.forEach((item, index) => {
+                const barHeight = (item.value / maxValue) * (canvas.height * 0.8);
+                const x = index * (barWidth + barSpacing) + barSpacing/2;
+                const y = canvas.height - barHeight - 20;
+                
+                ctx.fillStyle = '#4caf50';
+                ctx.fillRect(x, y, barWidth, barHeight);
+                
+                // Add labels
+                ctx.fillStyle = '#333';
+                ctx.font = '12px Arial';
+                ctx.fillText(item.label, x + barWidth/2 - 5, canvas.height - 5);
+                ctx.fillText(item.value, x + barWidth/2 - 5, y - 5);
+            });
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load existing progress
+            const savedProgress = localStorage.getItem('statisticsProgress') || 0;
+            statisticsProgress = parseInt(savedProgress);
+            document.getElementById('statisticsProgress').style.width = `${statisticsProgress}%`;
+            document.getElementById('progressText').textContent = `${statisticsProgress}% Complete`;
+            
+            // Initialize charts
+            drawNormalDistribution();
+            drawBarChart();
+        });
+    </script>
+</body>
+</html> 
