@@ -71,31 +71,114 @@
             font-family: 'Courier New', monospace;
             font-size: 1.2rem;
         }
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 900px) {
+            .nav-center {
+                display: none !important;
+            }
+            .hamburger {
+                display: flex !important;
+            }
+            .mobile-menu-overlay {
+                display: flex;
+            }
+        }
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(255,255,255,0.98);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+        }
+        .mobile-menu-overlay.open {
+            display: flex;
+        }
+        .mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            align-items: center;
+        }
+        .mobile-menu-list li a {
+            font-size: 1.35rem;
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: color 0.18s;
+        }
+        .mobile-menu-list li a:hover {
+            color: #0071e3;
+        }
     </style>
 </head>
 <body>
-    <!-- Hamburger Menu Button -->
-    <button id="hamburgerMenu" aria-label="Open chapter menu">
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-    </button>
-    <!-- Sidebar Menu -->
-    <nav id="sidebarMenu">
-        <div class="sidebar-header">
-            <h2>Chapters</h2>
-            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
-        </div>
-        <ul>
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="modeling.html">Modeling</a></li>
-            <li><a href="functions.html">Functions</a></li>
-            <li><a href="numbers.html">Number & Quantity</a></li>
-            <li><a href="algebra.html">Algebra</a></li>
-            <li><a href="geometry.html">Geometry</a></li>
-            <li><a href="statistics.html">Statistics & Probability</a></li>
-        </ul>
+    <!-- Main Apple-style Navigation Bar -->
+    <nav class="main-navbar">
+      <ul class="nav-center">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="modeling.html">Modeling</a></li>
+        <li><a href="functions.html">Functions</a></li>
+        <li><a href="numbers.html">Number & Quantity</a></li>
+        <li><a href="algebra.html" class="active">Algebra</a></li>
+        <li><a href="geometry.html">Geometry</a></li>
+        <li><a href="statistics.html">Statistics & Probability</a></li>
+      </ul>
+      <button class="nav-icon hamburger" id="mobileMenuBtn-algebra" aria-label="Open menu" onclick="toggleMobileMenuAlgebra()">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="6" width="28" height="2.5" rx="1.25" fill="#222"/>
+          <rect y="13" width="28" height="2.5" rx="1.25" fill="#222"/>
+          <rect y="20" width="28" height="2.5" rx="1.25" fill="#222"/>
+        </svg>
+      </button>
     </nav>
+    <!-- Mobile Fullscreen Overlay Menu -->
+    <div id="mobileMenuOverlay-algebra" class="mobile-menu-overlay">
+      <ul class="mobile-menu-list">
+        <li><a href="../index.html" onclick="closeMobileMenuAlgebra()">Home</a></li>
+        <li><a href="modeling.html" onclick="closeMobileMenuAlgebra()">Modeling</a></li>
+        <li><a href="functions.html" onclick="closeMobileMenuAlgebra()">Functions</a></li>
+        <li><a href="numbers.html" onclick="closeMobileMenuAlgebra()">Number & Quantity</a></li>
+        <li><a href="algebra.html" onclick="closeMobileMenuAlgebra()">Algebra</a></li>
+        <li><a href="geometry.html" onclick="closeMobileMenuAlgebra()">Geometry</a></li>
+        <li><a href="statistics.html" onclick="closeMobileMenuAlgebra()">Statistics & Probability</a></li>
+      </ul>
+    </div>
+    <!-- End Main Navbar -->
+    <script>
+      function toggleMobileMenuAlgebra() {
+        document.getElementById('mobileMenuOverlay-algebra').classList.toggle('open');
+      }
+      function closeMobileMenuAlgebra() {
+        document.getElementById('mobileMenuOverlay-algebra').classList.remove('open');
+      }
+      document.addEventListener('click', function(e) {
+        const overlay = document.getElementById('mobileMenuOverlay-algebra');
+        const btn = document.getElementById('mobileMenuBtn-algebra');
+        if (overlay.classList.contains('open') && !overlay.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+          overlay.classList.remove('open');
+        }
+      });
+      window.addEventListener('resize', function() {
+        if(window.innerWidth > 900) closeMobileMenuAlgebra();
+      });
+    </script>
 
     <header>
         <h1>🔢 Algebra</h1>
@@ -328,7 +411,7 @@
 
         <div class="nav-buttons">
             <a href="functions.html" class="nav-btn">← Functions</a>
-            <a href="geometry.html" class="nav-btn">Next: Geometry →</a>
+            <a href="geometry.html" class="nav-btn">Geometry →</a>
         </div>
     </main>
 

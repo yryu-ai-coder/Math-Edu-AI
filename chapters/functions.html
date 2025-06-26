@@ -76,31 +76,103 @@
         .function-table th {
             background-color: #f2f2f2;
         }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 900px) {
+            .nav-center {
+                display: none !important;
+            }
+            .hamburger {
+                display: flex !important;
+            }
+            .mobile-menu-overlay {
+                display: flex;
+            }
+        }
+        
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            z-index: 5000;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(255,255,255,0.98);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s;
+        }
+        
+        .mobile-menu-overlay.open {
+            display: flex;
+        }
+        
+        .mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            align-items: center;
+        }
+        
+        .mobile-menu-list li a {
+            font-size: 1.35rem;
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: color 0.18s;
+        }
+        
+        .mobile-menu-list li a:hover {
+            color: #0071e3;
+        }
     </style>
 </head>
 <body>
-    <!-- Hamburger Menu Button -->
-    <button id="hamburgerMenu" aria-label="Open chapter menu">
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-        <span style="display:block;width:28px;height:4px;background:#2563eb;margin:5px 0;border-radius:2px;"></span>
-    </button>
-    <!-- Sidebar Menu -->
-    <nav id="sidebarMenu">
-        <div class="sidebar-header">
-            <h2>Chapters</h2>
-            <button id="closeSidebar" aria-label="Close chapter menu">&times;</button>
-        </div>
-        <ul>
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="modeling.html">Modeling</a></li>
-            <li><a href="functions.html">Functions</a></li>
-            <li><a href="numbers.html">Number & Quantity</a></li>
-            <li><a href="algebra.html">Algebra</a></li>
-            <li><a href="geometry.html">Geometry</a></li>
-            <li><a href="statistics.html">Statistics & Probability</a></li>
-        </ul>
+    <!-- Main Apple-style Navigation Bar -->
+    <nav class="main-navbar">
+      <ul class="nav-center">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="modeling.html">Modeling</a></li>
+        <li><a href="functions.html" class="active">Functions</a></li>
+        <li><a href="numbers.html">Number & Quantity</a></li>
+        <li><a href="algebra.html">Algebra</a></li>
+        <li><a href="geometry.html">Geometry</a></li>
+        <li><a href="statistics.html">Statistics & Probability</a></li>
+      </ul>
+      <button class="nav-icon hamburger" id="mobileMenuBtn-functions" aria-label="Open menu" onclick="toggleMobileMenuFunctions()">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect y="6" width="28" height="2.5" rx="1.25" fill="#222"/>
+          <rect y="13" width="28" height="2.5" rx="1.25" fill="#222"/>
+          <rect y="20" width="28" height="2.5" rx="1.25" fill="#222"/>
+        </svg>
+      </button>
     </nav>
+    <!-- Mobile Fullscreen Overlay Menu -->
+    <div id="mobileMenuOverlay-functions" class="mobile-menu-overlay">
+      <ul class="mobile-menu-list">
+        <li><a href="../index.html" onclick="closeMobileMenuFunctions()">Home</a></li>
+        <li><a href="modeling.html" onclick="closeMobileMenuFunctions()">Modeling</a></li>
+        <li><a href="functions.html" onclick="closeMobileMenuFunctions()">Functions</a></li>
+        <li><a href="numbers.html" onclick="closeMobileMenuFunctions()">Number & Quantity</a></li>
+        <li><a href="algebra.html" onclick="closeMobileMenuFunctions()">Algebra</a></li>
+        <li><a href="geometry.html" onclick="closeMobileMenuFunctions()">Geometry</a></li>
+        <li><a href="statistics.html" onclick="closeMobileMenuFunctions()">Statistics & Probability</a></li>
+      </ul>
+    </div>
+    <!-- End Main Navbar -->
 
     <header>
         <h1>📈 Functions</h1>
@@ -328,7 +400,7 @@
 
         <div class="nav-buttons">
             <a href="modeling.html" class="nav-btn">← Modeling</a>
-            <a href="algebra.html" class="nav-btn">Next: Algebra →</a>
+            <a href="algebra.html" class="nav-btn">Algebra →</a>
         </div>
     </main>
 
@@ -483,6 +555,23 @@
             // Initialize graphs
             drawLinearFunctionGraph();
             drawExponentialGraph();
+        });
+
+        function toggleMobileMenuFunctions() {
+            document.getElementById('mobileMenuOverlay-functions').classList.toggle('open');
+        }
+        function closeMobileMenuFunctions() {
+            document.getElementById('mobileMenuOverlay-functions').classList.remove('open');
+        }
+        document.addEventListener('click', function(e) {
+            const overlay = document.getElementById('mobileMenuOverlay-functions');
+            const btn = document.getElementById('mobileMenuBtn-functions');
+            if (overlay.classList.contains('open') && !overlay.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+                overlay.classList.remove('open');
+            }
+        });
+        window.addEventListener('resize', function() {
+            if(window.innerWidth > 900) closeMobileMenuFunctions();
         });
     </script>
 </body>

@@ -1,14 +1,10 @@
 // Hamburger & Sidebar Menu for all pages
 const hamburgerMenu = document.getElementById('hamburgerMenu');
 const sidebarMenu = document.getElementById('sidebarMenu');
-const closeSidebar = document.getElementById('closeSidebar');
 
-if (hamburgerMenu && sidebarMenu && closeSidebar) {
+if (hamburgerMenu && sidebarMenu) {
     hamburgerMenu.addEventListener('click', () => {
-        sidebarMenu.classList.add('open');
-    });
-    closeSidebar.addEventListener('click', () => {
-        sidebarMenu.classList.remove('open');
+        sidebarMenu.classList.toggle('open');
     });
     // 바깥 클릭 시 닫기
     document.addEventListener('click', (e) => {
@@ -20,6 +16,12 @@ if (hamburgerMenu && sidebarMenu && closeSidebar) {
         ) {
             sidebarMenu.classList.remove('open');
         }
+    });
+    // 메뉴 항목 클릭 시 닫기 (모바일/데스크탑 모두)
+    sidebarMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            sidebarMenu.classList.remove('open');
+        });
     });
 }
 
@@ -296,4 +298,34 @@ function getQuizResults() {
         score: parseInt(localStorage.getItem('quizScore')) || 0,
         percentage: parseInt(localStorage.getItem('quizPercentage')) || 0
     };
-} 
+}
+
+// Search input toggle & search
+const searchIcon = document.getElementById('searchIcon');
+const searchInput = document.getElementById('searchInput');
+if (searchIcon && searchInput) {
+  searchIcon.addEventListener('click', () => {
+    if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+      searchInput.style.display = 'inline-block';
+      searchInput.focus();
+    } else {
+      searchInput.style.display = 'none';
+    }
+  });
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && searchInput.value.trim()) {
+      const q = encodeURIComponent(searchInput.value.trim());
+      window.open(`https://www.google.com/search?q=${q}`, '_blank');
+      searchInput.value = '';
+      searchInput.style.display = 'none';
+    }
+  });
+}
+
+// 데스크탑에서 사이드바 메뉴 강제 닫힘
+window.addEventListener('resize', () => {
+  const sidebarMenu = document.getElementById('sidebarMenu');
+  if (window.innerWidth > 900 && sidebarMenu) {
+    sidebarMenu.classList.remove('open');
+  }
+}); 
